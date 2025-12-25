@@ -12,9 +12,28 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (b === 0) {
-        throw new Error("Cannot divide by zero");
+        alert("ห้ามหารด้วย 0 ");
+        return "Error";
     }
     return a / b;
 }
 
-module.exports = { add, subtract, multiply, divide };
+function calculate(operator, a, b) {
+    a = Number(a);
+    b = Number(b);
+
+    switch (operator) {
+        case '+': return add(a, b);
+        case '-': return subtract(a, b);
+        case '*': return multiply(a, b);
+        case '/': return divide(a, b);
+        default: 
+            alert("Operator ไม่ถูกต้อง");
+            return null;
+    }
+}
+
+
+console.log(calculate('+', 5, 3)); 
+console.log(calculate('*', 4, 2)); 
+console.log(calculate('/', 10, 0)); 
